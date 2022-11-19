@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java Script Lesson 7</title>
+    
+    </head>
+    <body>
+        <script>
+            "use strict";
+            // створення нового користувача
+            function createNewUser(name){
+                let first_Name = prompt('Напишіть ім\'я латиною', 'FirstName');
+                let last_Name = prompt('Напишіть прізвище латиною', 'LastName');
+                
+                name = new User(first_Name, last_Name);
+                name.getLogin();
+                
+            }
+            function User(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.getLogin = function(){
+                    console.log((firstName[0] + lastName).toLowerCase());
+                }
+            }
+            let sasza, nika;
+            createNewUser(sasza);
+            createNewUser(nika);
+            
+        </script>  
+    </body>

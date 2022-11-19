@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java Script Lesson 7</title>
+    
+    </head>
+    <body>
+        <script>
+            "use strict";
+            // створення нового користувача
+            function createNewUser(name){
+                let first_Name = prompt('Напишіть ім\'я латиною', 'FirstName');
+                let last_Name = prompt('Напишіть прізвище латиною', 'LastName');
+                let birth = prompt('Напишіть дату народження в форматі dd.mm.yyyy', '22.03.1978');   // проміжна змінна, яка позначає дату народження
+                let birth_day = new Date(birth.slice(6) + '-' + birth.slice(3, 5) + '-' + birth.slice(0, 2)); // перехід до рядка, що позначає дату і має вигляд "2022-11-13"
+                let year_Of_Birth = birth_day.getFullYear();
+                
+                name = new User(first_Name, last_Name);
+                name.getLogin();
+
+                console.log(getAge(birth_day));
+                console.log(getPassword(first_Name, last_Name, year_Of_Birth));
+                
+            }
+            function User(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.getLogin = function(){
+                    console.log((firstName[0] + lastName).toLowerCase());
+                }
+            }
+
+            function getAge(birthday){
+                let now = new Date();
+                return now.getFullYear() - birthday.getFullYear();
+            }
+
+            function getPassword(firstName, lastName, yearOfBirth){
+                return firstName [0].toUpperCase() + lastName.toLowerCase() + yearOfBirth;
+            }
+
+            let sasza, nika;
+            createNewUser(sasza);
+            createNewUser(nika);
+            
+        </script>  
+    </body>

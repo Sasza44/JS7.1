@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java Script Lesson 7</title>
+    
+    </head>
+    <body>
+        <script>
+            "use strict";
+            
+            // Гра "Поле чудес"
+
+            // Загадуємо слово
+            let word = 'буряк';
+            // Початкова кількість очок гравця
+            let numberOfPoints = 10;
+
+            alert(word.length);
+            // Створюємо масив із вгаданих літер
+            let wordArray = [];
+            for(let i = 0; i < word.length; i++){
+                wordArray [i] = '_';
+            }
+            alert(wordArray);
+            
+            while(wordArray.indexOf('_', 0) != -1){
+                // Починаємо вгадувати літери
+                let letter = prompt("Введіть літеру", '*');
+                let wordArray1 = wordArray.slice(); // створюємо копію масиву, який був до вгадування літери
+                let pos = -1;
+                while((pos = word.indexOf(letter, pos + 1)) != -1){
+                    wordArray [pos] = letter;
+                }
+                // Перевірка, чи вгадали літеру
+                let wordArray2 = wordArray.slice(); // копія масиву після спроби вгадування, щоб перетворювати на рядок копію
+                if(JSON.stringify(wordArray1) === JSON.stringify(wordArray2)){
+                    numberOfPoints = numberOfPoints - 1;
+                    alert(`Ви не вгадали літеру, знімається очко, залишилось ${numberOfPoints}`);
+                }
+                else{
+                    alert(`Ви вгадали літеру ${letter}`);
+                    alert(wordArray);
+                }
+                if(numberOfPoints == 0) break;
+            }
+            alert(wordArray);
+            
+
+
+        </script>  
+    </body>

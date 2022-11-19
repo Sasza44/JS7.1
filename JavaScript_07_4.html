@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Java Script Lesson 7</title>
+    
+    </head>
+    <body>
+        <script>
+            "use strict";
+            
+            let arr = ['hello', 'world', 23, '23', null];
+
+            function filterBy(a, b){
+                let arr1 = [];
+                for(let i = 0; i < a.length; i++){
+                    if(typeof a [i] != b){
+                        arr1.push(a [i]);
+                    }
+                }
+                alert(arr1);
+            }
+
+            filterBy(arr, 'string');
+            
+        </script>  
+    </body>
